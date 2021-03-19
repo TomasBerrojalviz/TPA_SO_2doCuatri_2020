@@ -1,0 +1,1380 @@
+==11260== Memcheck, a memory error detector
+==11260== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==11260== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==11260== Command: ./Sindicato
+==11260== Parent PID: 9980
+==11260== 
+--11260-- 
+--11260-- Valgrind options:
+--11260--    --show-leak-kinds=all
+--11260--    --leak-check=full
+--11260--    -v
+--11260--    --log-file=elFinal.txt
+--11260-- Contents of /proc/version:
+--11260--   Linux version 4.4.0-190-generic (buildd@lcy01-amd64-027) (gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.12) ) #220-Ubuntu SMP Fri Aug 28 23:00:57 UTC 2020
+--11260-- 
+--11260-- Arch and hwcaps: X86, LittleEndian, x86-mmxext-sse1-sse2-sse3-lzcnt
+--11260-- Page sizes: currently 4096, max supported 4096
+--11260-- Valgrind library directory: /usr/lib/valgrind
+--11260-- Reading syms from /lib/i386-linux-gnu/ld-2.23.so
+--11260--   Considering /lib/i386-linux-gnu/ld-2.23.so ..
+--11260--   .. CRC mismatch (computed 02ac44c8 wanted 64966f77)
+--11260--   Considering /usr/lib/debug/lib/i386-linux-gnu/ld-2.23.so ..
+--11260--   .. CRC is valid
+--11260-- Reading syms from /home/utnso/tp-2020-2c-breakfastClub/Sindicato/Debug/Sindicato
+--11260-- Reading syms from /usr/lib/valgrind/memcheck-x86-linux
+--11260--   Considering /usr/lib/valgrind/memcheck-x86-linux ..
+--11260--   .. CRC mismatch (computed 6036da3f wanted 652e483f)
+--11260--    object doesn't have a symbol table
+--11260--    object doesn't have a dynamic symbol table
+--11260-- Scheduler: using generic scheduler lock implementation.
+--11260-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==11260== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-11260-by-utnso-on-???
+==11260== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-11260-by-utnso-on-???
+==11260== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-11260-by-utnso-on-???
+==11260== 
+==11260== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==11260== don't want to do, unless you know exactly what you're doing,
+==11260== or are doing some strange experiment):
+==11260==   /usr/lib/valgrind/../../bin/vgdb --pid=11260 ...command...
+==11260== 
+==11260== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==11260==   /path/to/gdb ./Sindicato
+==11260== and then give GDB the following command
+==11260==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=11260
+==11260== --pid is optional if only one valgrind process is running
+==11260== 
+--11260-- REDIR: 0x4019030 (ld-linux.so.2:strlen) redirected to 0x380490f2 (???)
+--11260-- REDIR: 0x4018df0 (ld-linux.so.2:index) redirected to 0x380490cd (???)
+--11260-- Reading syms from /usr/lib/valgrind/vgpreload_core-x86-linux.so
+--11260--   Considering /usr/lib/valgrind/vgpreload_core-x86-linux.so ..
+--11260--   .. CRC mismatch (computed 5b95c0c4 wanted 39e79efa)
+--11260--    object doesn't have a symbol table
+--11260-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so
+--11260--   Considering /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so ..
+--11260--   .. CRC mismatch (computed 4d5a1526 wanted 33571d5b)
+--11260--    object doesn't have a symbol table
+==11260== WARNING: new redirection conflicts with existing -- ignoring it
+--11260--     old: 0x04019030 (strlen              ) R-> (0000.0) 0x380490f2 ???
+--11260--     new: 0x04019030 (strlen              ) R-> (2007.0) 0x0402f410 strlen
+--11260-- Reading syms from /usr/lib/libcommons.so
+--11260-- Reading syms from /lib/i386-linux-gnu/libreadline.so.6.3
+--11260--   Considering /lib/i386-linux-gnu/libreadline.so.6.3 ..
+--11260--   .. CRC mismatch (computed ae23cd8f wanted 3f613fc8)
+--11260--    object doesn't have a symbol table
+--11260-- Reading syms from /home/utnso/tp-2020-2c-breakfastClub/Utils_Shared/Debug/libUtils_Shared.so
+--11260-- Reading syms from /lib/i386-linux-gnu/libpthread-2.23.so
+--11260--   Considering /usr/lib/debug/.build-id/68/2bf85987d0689db8a285f2da2b8a29815a170c.debug ..
+--11260--   .. build-id is valid
+--11260-- Reading syms from /lib/i386-linux-gnu/libc-2.23.so
+--11260--   Considering /lib/i386-linux-gnu/libc-2.23.so ..
+--11260--   .. CRC mismatch (computed 946db697 wanted c9226aeb)
+--11260--   Considering /usr/lib/debug/lib/i386-linux-gnu/libc-2.23.so ..
+--11260--   .. CRC is valid
+--11260-- Reading syms from /lib/i386-linux-gnu/libtinfo.so.5.9
+--11260--    object doesn't have a symbol table
+--11260-- REDIR: 0x4137590 (libc.so.6:strncasecmp) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
+--11260-- REDIR: 0x413e220 (libc.so.6:memrchr) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
+--11260-- REDIR: 0x4150c00 (libc.so.6:wcslen) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
+--11260-- REDIR: 0x41376f0 (libc.so.6:memcpy) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
+--11260-- REDIR: 0x41370a0 (libc.so.6:memset) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
+--11260-- REDIR: 0x4136430 (libc.so.6:strstr) redirected to 0x4033700 (strstr)
+--11260-- REDIR: 0x41358c0 (libc.so.6:__GI_strrchr) redirected to 0x402ee00 (__GI_strrchr)
+--11260-- REDIR: 0x4130fc0 (libc.so.6:malloc) redirected to 0x402c110 (malloc)
+--11260-- REDIR: 0x41356a0 (libc.so.6:__GI_strlen) redirected to 0x402f390 (__GI_strlen)
+--11260-- REDIR: 0x4137760 (libc.so.6:__GI_memcpy) redirected to 0x4030fb0 (__GI_memcpy)
+--11260-- REDIR: 0x41318f0 (libc.so.6:calloc) redirected to 0x402e010 (calloc)
+--11260-- REDIR: 0x41315e0 (libc.so.6:realloc) redirected to 0x402e250 (realloc)
+--11260-- REDIR: 0x4131530 (libc.so.6:free) redirected to 0x402d2f0 (free)
+--11260-- REDIR: 0x4135660 (libc.so.6:strlen) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
+--11260-- REDIR: 0x413e520 (libc.so.6:__strlen_sse2_bsf) redirected to 0x402f370 (strlen)
+--11260-- REDIR: 0x41357e0 (libc.so.6:strncmp) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
+--11260-- REDIR: 0x41f56d0 (libc.so.6:__strncmp_ssse3) redirected to 0x402fab0 (strncmp)
+--11260-- REDIR: 0x4139360 (libc.so.6:strchrnul) redirected to 0x40330b0 (strchrnul)
+--11260-- REDIR: 0x41371b0 (libc.so.6:__GI_mempcpy) redirected to 0x40332c0 (__GI_mempcpy)
+--11260-- REDIR: 0x4134bc0 (libc.so.6:strcat) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
+--11260-- REDIR: 0x4149c10 (libc.so.6:__strcat_ssse3) redirected to 0x402f030 (strcat)
+--11260-- REDIR: 0x4136cf0 (libc.so.6:__GI_memcmp) redirected to 0x4031ef0 (__GI_memcmp)
+--11260-- REDIR: 0x4139290 (libc.so.6:__GI___rawmemchr) redirected to 0x4033110 (__GI___rawmemchr)
+==11260== Conditional jump or move depends on uninitialised value(s)
+==11260==    at 0x402F3A7: __GI_strlen (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x413539A: strdup (strdup.c:41)
+==11260==    by 0x405409A: string_duplicate (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BB6: crear_bloque (blocks.c:12)
+==11260==    by 0x804AF4A: leer_metadata (datos_sindicato.c:65)
+==11260==    by 0x804AE85: obtener_metada (datos_sindicato.c:47)
+==11260==    by 0x804975A: iniciar_sindicato (Sindicato.c:29)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== Conditional jump or move depends on uninitialised value(s)
+==11260==    at 0x402F3A7: __GI_strlen (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x413539A: strdup (strdup.c:41)
+==11260==    by 0x405409A: string_duplicate (in /usr/lib/libcommons.so)
+==11260==    by 0x4054ACF: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40545F3: string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BDB: crear_bloque (blocks.c:15)
+==11260==    by 0x804AF4A: leer_metadata (datos_sindicato.c:65)
+==11260==    by 0x804AE85: obtener_metada (datos_sindicato.c:47)
+==11260==    by 0x804975A: iniciar_sindicato (Sindicato.c:29)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== Conditional jump or move depends on uninitialised value(s)
+==11260==    at 0x4054B5E: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40545F3: string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BDB: crear_bloque (blocks.c:15)
+==11260==    by 0x804AF4A: leer_metadata (datos_sindicato.c:65)
+==11260==    by 0x804AE85: obtener_metada (datos_sindicato.c:47)
+==11260==    by 0x804975A: iniciar_sindicato (Sindicato.c:29)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== Conditional jump or move depends on uninitialised value(s)
+==11260==    at 0x4054B6B: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40545F3: string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BDB: crear_bloque (blocks.c:15)
+==11260==    by 0x804AF4A: leer_metadata (datos_sindicato.c:65)
+==11260==    by 0x804AE85: obtener_metada (datos_sindicato.c:47)
+==11260==    by 0x804975A: iniciar_sindicato (Sindicato.c:29)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+--11260-- REDIR: 0x4135070 (libc.so.6:strcpy) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
+--11260-- REDIR: 0x413e650 (libc.so.6:__strcpy_ssse3) redirected to 0x402f450 (strcpy)
+--11260-- REDIR: 0x4135880 (libc.so.6:rindex) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
+--11260-- REDIR: 0x414f610 (libc.so.6:__strrchr_sse2_bsf) redirected to 0x402edd0 (rindex)
+--11260-- REDIR: 0x4134dc0 (libc.so.6:index) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
+--11260-- REDIR: 0x414f500 (libc.so.6:__strchr_sse2_bsf) redirected to 0x402eff0 (index)
+--11260-- REDIR: 0x413e460 (libc.so.6:__GI_strncmp) redirected to 0x402fb40 (__GI_strncmp)
+--11260-- REDIR: 0x41e55e0 (libc.so.6:__memset_sse2) redirected to 0x40327d0 (memset)
+--11260-- REDIR: 0x41501e0 (libc.so.6:__GI_strnlen) redirected to 0x402f330 (__GI_strnlen)
+--11260-- REDIR: 0x4134fc0 (libc.so.6:strcmp) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
+--11260-- REDIR: 0x41f4260 (libc.so.6:__strcmp_ssse3) redirected to 0x4030450 (strcmp)
+--11260-- REDIR: 0x41e7c80 (libc.so.6:__memcpy_ssse3) redirected to 0x4030cc0 (memcpy)
+--11260-- REDIR: 0x41b4d90 (libc.so.6:__memcpy_chk) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
+--11260-- REDIR: 0x41e7c70 (libc.so.6:__memcpy_chk_ssse3) redirected to 0x4033600 (__memcpy_chk)
+--11260-- REDIR: 0x4135830 (libc.so.6:strncpy) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
+--11260-- REDIR: 0x413fea0 (libc.so.6:__strncpy_ssse3) redirected to 0x402f5f0 (strncpy)
+--11260-- REDIR: 0x40ee660 (libc.so.6:setenv) redirected to 0x4033d60 (setenv)
+--11260-- REDIR: 0x4134e00 (libc.so.6:__GI_strchr) redirected to 0x402ef30 (__GI_strchr)
+--11260-- REDIR: 0x4135010 (libc.so.6:__GI_strcmp) redirected to 0x40304b0 (__GI_strcmp)
+--11260-- REDIR: 0x4136b10 (libc.so.6:__GI_memchr) redirected to 0x40306d0 (__GI_memchr)
+--11260-- REDIR: 0x41373c0 (libc.so.6:__GI_stpcpy) redirected to 0x4032290 (__GI_stpcpy)
+--11260-- REDIR: 0x4137540 (libc.so.6:strcasecmp) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
+--11260-- REDIR: 0x41f70c0 (libc.so.6:__strcasecmp_ssse3) redirected to 0x402fcf0 (strcasecmp)
+--11260-- REDIR: 0x41f95d0 (libc.so.6:__strncasecmp_ssse3) redirected to 0x402fe10 (strncasecmp)
+--11260-- REDIR: 0x4136cb0 (libc.so.6:bcmp) redirected to 0x4026560 (_vgnU_ifunc_wrapper)
+--11260-- REDIR: 0x41fe4e0 (libc.so.6:__memcmp_ssse3) redirected to 0x40320a0 (bcmp)
+==11260== Thread 3:
+==11260== Conditional jump or move depends on uninitialised value(s)
+==11260==    at 0x4054B5E: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40545F3: string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BDB: crear_bloque (blocks.c:15)
+==11260==    by 0x804DE52: leer_archivo (datos_sindicato.c:1183)
+==11260==    by 0x804DD00: obtener_restaurante_FS (datos_sindicato.c:1155)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== Conditional jump or move depends on uninitialised value(s)
+==11260==    at 0x4054B6B: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40545F3: string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BDB: crear_bloque (blocks.c:15)
+==11260==    by 0x804DE52: leer_archivo (datos_sindicato.c:1183)
+==11260==    by 0x804DD00: obtener_restaurante_FS (datos_sindicato.c:1155)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== Invalid read of size 1
+==11260==    at 0x4104393: vfprintf (vfprintf.c:1632)
+==11260==    by 0x41263EE: vsnprintf (vsnprintf.c:114)
+==11260==    by 0x4054A1B: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==11260==    by 0x40541D3: string_from_vformat (in /usr/lib/libcommons.so)
+==11260==    by 0x4053F0C: _log_write_in_level (in /usr/lib/libcommons.so)
+==11260==    by 0x4053D8D: log_info (in /usr/lib/libcommons.so)
+==11260==    by 0x804FA5D: deserializar_restaurante_FS (datos_sindicato.c:1882)
+==11260==    by 0x804DD22: obtener_restaurante_FS (datos_sindicato.c:1157)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260==  Address 0x43f3148 is 0 bytes after a block of size 136 alloc'd
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x804BA83: bajar_datos_bloques (datos_sindicato.c:307)
+==11260==    by 0x804DD11: obtener_restaurante_FS (datos_sindicato.c:1156)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== Invalid read of size 1
+==11260==    at 0x4104393: vfprintf (vfprintf.c:1632)
+==11260==    by 0x41263EE: vsnprintf (vsnprintf.c:114)
+==11260==    by 0x4054A4D: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==11260==    by 0x40541D3: string_from_vformat (in /usr/lib/libcommons.so)
+==11260==    by 0x4053F0C: _log_write_in_level (in /usr/lib/libcommons.so)
+==11260==    by 0x4053D8D: log_info (in /usr/lib/libcommons.so)
+==11260==    by 0x804FA5D: deserializar_restaurante_FS (datos_sindicato.c:1882)
+==11260==    by 0x804DD22: obtener_restaurante_FS (datos_sindicato.c:1157)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260==  Address 0x43f3148 is 0 bytes after a block of size 136 alloc'd
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x804BA83: bajar_datos_bloques (datos_sindicato.c:307)
+==11260==    by 0x804DD11: obtener_restaurante_FS (datos_sindicato.c:1156)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== Invalid read of size 1
+==11260==    at 0x402F3A3: __GI_strlen (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x413539A: strdup (strdup.c:41)
+==11260==    by 0x405409A: string_duplicate (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BB6: crear_bloque (blocks.c:12)
+==11260==    by 0x804FA6D: deserializar_restaurante_FS (datos_sindicato.c:1883)
+==11260==    by 0x804DD22: obtener_restaurante_FS (datos_sindicato.c:1157)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260==  Address 0x43f3148 is 0 bytes after a block of size 136 alloc'd
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x804BA83: bajar_datos_bloques (datos_sindicato.c:307)
+==11260==    by 0x804DD11: obtener_restaurante_FS (datos_sindicato.c:1156)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== Invalid read of size 1
+==11260==    at 0x4031230: __GI_memcpy (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x41353B7: strdup (strdup.c:47)
+==11260==    by 0x405409A: string_duplicate (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BB6: crear_bloque (blocks.c:12)
+==11260==    by 0x804FA6D: deserializar_restaurante_FS (datos_sindicato.c:1883)
+==11260==    by 0x804DD22: obtener_restaurante_FS (datos_sindicato.c:1157)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260==  Address 0x43f3148 is 0 bytes after a block of size 136 alloc'd
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x804BA83: bajar_datos_bloques (datos_sindicato.c:307)
+==11260==    by 0x804DD11: obtener_restaurante_FS (datos_sindicato.c:1156)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== Invalid read of size 1
+==11260==    at 0x402F3A3: __GI_strlen (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x413539A: strdup (strdup.c:41)
+==11260==    by 0x405409A: string_duplicate (in /usr/lib/libcommons.so)
+==11260==    by 0x4054ACF: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40545F3: string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BDB: crear_bloque (blocks.c:15)
+==11260==    by 0x804FA6D: deserializar_restaurante_FS (datos_sindicato.c:1883)
+==11260==    by 0x804DD22: obtener_restaurante_FS (datos_sindicato.c:1157)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260==  Address 0x43f3148 is 0 bytes after a block of size 136 alloc'd
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x804BA83: bajar_datos_bloques (datos_sindicato.c:307)
+==11260==    by 0x804DD11: obtener_restaurante_FS (datos_sindicato.c:1156)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== Invalid read of size 1
+==11260==    at 0x4031230: __GI_memcpy (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x41353B7: strdup (strdup.c:47)
+==11260==    by 0x405409A: string_duplicate (in /usr/lib/libcommons.so)
+==11260==    by 0x4054ACF: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40545F3: string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BDB: crear_bloque (blocks.c:15)
+==11260==    by 0x804FA6D: deserializar_restaurante_FS (datos_sindicato.c:1883)
+==11260==    by 0x804DD22: obtener_restaurante_FS (datos_sindicato.c:1157)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260==  Address 0x43f3148 is 0 bytes after a block of size 136 alloc'd
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x804BA83: bajar_datos_bloques (datos_sindicato.c:307)
+==11260==    by 0x804DD11: obtener_restaurante_FS (datos_sindicato.c:1156)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+--11260-- Reading syms from /lib/i386-linux-gnu/libgcc_s.so.1
+--11260--   Considering /lib/i386-linux-gnu/libgcc_s.so.1 ..
+--11260--   .. CRC mismatch (computed 1733b444 wanted 20ea50ba)
+--11260--    object doesn't have a symbol table
+==11260== 
+==11260== Process terminating with default action of signal 2 (SIGINT)
+==11260==    at 0x40B2264: accept (accept.c:35)
+==11260==    by 0x805048C: esperar_cliente (utils_Sindicato.c:44)
+==11260==    by 0x8050450: iniciar_servidor (utils_Sindicato.c:34)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+--11260-- Discarding syms at 0x59e9080-0x59fed35 in /lib/i386-linux-gnu/libgcc_s.so.1 due to munmap()
+==11260== 
+==11260== HEAP SUMMARY:
+==11260==     in use at exit: 115,660 bytes in 229 blocks
+==11260==   total heap usage: 15,168 allocs, 14,939 frees, 637,169 bytes allocated
+==11260== 
+==11260== Searching for pointers to 229 not-freed blocks
+==11260== Checked 8,568,604 bytes
+==11260== 
+==11260== Thread 1:
+==11260== 2 bytes in 1 blocks are still reachable in loss record 1 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4066A71: rl_set_prompt (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5A: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 2 bytes in 1 blocks are still reachable in loss record 2 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4076C3A: ??? (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407700B: rl_expand_prompt (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4066A96: rl_set_prompt (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5A: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 4 bytes in 1 blocks are indirectly lost in loss record 3 of 75
+==11260==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x405445E: string_trim_right (in /usr/lib/libcommons.so)
+==11260==    by 0x4054354: string_trim (in /usr/lib/libcommons.so)
+==11260==    by 0x405473D: string_get_string_as_array (in /usr/lib/libcommons.so)
+==11260==    by 0x8049D0A: obtener_dato_lista (blocks.c:50)
+==11260==    by 0x804FC12: deserializar_restaurante_FS (datos_sindicato.c:1908)
+==11260==    by 0x804DD22: obtener_restaurante_FS (datos_sindicato.c:1157)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== 4 bytes in 1 blocks are definitely lost in loss record 4 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x402E370: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4054BC4: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40545F3: string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x4054716: string_get_string_as_array (in /usr/lib/libcommons.so)
+==11260==    by 0x8049D0A: obtener_dato_lista (blocks.c:50)
+==11260==    by 0x804FB63: deserializar_restaurante_FS (datos_sindicato.c:1900)
+==11260==    by 0x804DD22: obtener_restaurante_FS (datos_sindicato.c:1157)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== 5 bytes in 1 blocks are still reachable in loss record 5 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x41353A5: strdup (strdup.c:42)
+==11260==    by 0x405409A: string_duplicate (in /usr/lib/libcommons.so)
+==11260==    by 0x804AF7C: leer_metadata (datos_sindicato.c:68)
+==11260==    by 0x804AE85: obtener_metada (datos_sindicato.c:47)
+==11260==    by 0x804975A: iniciar_sindicato (Sindicato.c:29)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 5 bytes in 1 blocks are definitely lost in loss record 6 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x41353A5: strdup (strdup.c:42)
+==11260==    by 0x405409A: string_duplicate (in /usr/lib/libcommons.so)
+==11260==    by 0x4054BA9: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40546AF: string_n_split (in /usr/lib/libcommons.so)
+==11260==    by 0x8049AFB: add_cofiguration.7573 (blocks.c:19)
+==11260==    by 0x4054846: string_iterate_lines (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BF3: crear_bloque (blocks.c:25)
+==11260==    by 0x804AF4A: leer_metadata (datos_sindicato.c:65)
+==11260==    by 0x804AE85: obtener_metada (datos_sindicato.c:47)
+==11260==    by 0x804975A: iniciar_sindicato (Sindicato.c:29)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 6 bytes in 1 blocks are still reachable in loss record 7 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x41353A5: strdup (strdup.c:42)
+==11260==    by 0x4282010: _nc_setupterm (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x428239E: tgetent (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x407FD4B: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 7 bytes in 2 blocks are definitely lost in loss record 8 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x41353A5: strdup (strdup.c:42)
+==11260==    by 0x405409A: string_duplicate (in /usr/lib/libcommons.so)
+==11260==    by 0x4054BA9: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40546AF: string_n_split (in /usr/lib/libcommons.so)
+==11260==    by 0x804A75F: add_cofiguration.7683 (blocks.c:245)
+==11260==    by 0x4054846: string_iterate_lines (in /usr/lib/libcommons.so)
+==11260==    by 0x804A860: crear_data_archivo_FS (blocks.c:251)
+==11260==    by 0x804DE9C: leer_archivo (datos_sindicato.c:1186)
+==11260==    by 0x804DD00: obtener_restaurante_FS (datos_sindicato.c:1155)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260== 
+==11260== 8 bytes in 1 blocks are still reachable in loss record 9 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4056393: config_create (in /usr/lib/libcommons.so)
+==11260==    by 0x80498EB: leer_config (Sindicato.c:63)
+==11260==    by 0x8049737: iniciar_sindicato (Sindicato.c:22)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 8 bytes in 1 blocks are still reachable in loss record 10 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x41353A5: strdup (strdup.c:42)
+==11260==    by 0x4287D6E: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4288059: _nc_trim_sgr0 (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x42824D3: tgetent (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x407FD4B: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 12 bytes in 1 blocks are still reachable in loss record 11 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x41353A5: strdup (strdup.c:42)
+==11260==    by 0x405409A: string_duplicate (in /usr/lib/libcommons.so)
+==11260==    by 0x4053C49: log_create (in /usr/lib/libcommons.so)
+==11260==    by 0x80498C2: iniciar_logger (Sindicato.c:59)
+==11260==    by 0x8049741: iniciar_sindicato (Sindicato.c:24)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 12 bytes in 1 blocks are still reachable in loss record 12 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x41353A5: strdup (strdup.c:42)
+==11260==    by 0x427ED9F: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x427F0B4: _nc_first_db (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4287909: _nc_read_entry (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4281C4A: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4281FB7: _nc_setupterm (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x428239E: tgetent (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x407FD4B: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260== 
+==11260== 12 (8 direct, 4 indirect) bytes in 1 blocks are definitely lost in loss record 13 of 75
+==11260==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4054BC4: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40545F3: string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x4054716: string_get_string_as_array (in /usr/lib/libcommons.so)
+==11260==    by 0x8049D0A: obtener_dato_lista (blocks.c:50)
+==11260==    by 0x804FC12: deserializar_restaurante_FS (datos_sindicato.c:1908)
+==11260==    by 0x804DD22: obtener_restaurante_FS (datos_sindicato.c:1157)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== 13 bytes in 1 blocks are still reachable in loss record 14 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4074491: ??? (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C82: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 13 bytes in 1 blocks are indirectly lost in loss record 15 of 75
+==11260==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x405445E: string_trim_right (in /usr/lib/libcommons.so)
+==11260==    by 0x4054354: string_trim (in /usr/lib/libcommons.so)
+==11260==    by 0x405473D: string_get_string_as_array (in /usr/lib/libcommons.so)
+==11260==    by 0x8049D0A: obtener_dato_lista (blocks.c:50)
+==11260==    by 0x804FBFA: deserializar_restaurante_FS (datos_sindicato.c:1907)
+==11260==    by 0x804DD22: obtener_restaurante_FS (datos_sindicato.c:1157)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== 14 bytes in 1 blocks are still reachable in loss record 16 of 75
+==11260==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x427F572: _nc_doalloc (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4283506: tparm (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4287D5A: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x428804B: _nc_trim_sgr0 (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x42824D3: tgetent (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x407FD4B: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 16 bytes in 1 blocks are still reachable in loss record 17 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x40559F7: dictionary_create (in /usr/lib/libcommons.so)
+==11260==    by 0x40563B6: config_create (in /usr/lib/libcommons.so)
+==11260==    by 0x80498EB: leer_config (Sindicato.c:63)
+==11260==    by 0x8049737: iniciar_sindicato (Sindicato.c:22)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 16 bytes in 1 blocks are still reachable in loss record 18 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4067D00: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 20 bytes in 1 blocks are still reachable in loss record 19 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4053BA3: log_create (in /usr/lib/libcommons.so)
+==11260==    by 0x80498C2: iniciar_logger (Sindicato.c:59)
+==11260==    by 0x8049741: iniciar_sindicato (Sindicato.c:24)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 20 bytes in 1 blocks are still reachable in loss record 20 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4071F33: ??? (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4073F83: rl_parse_and_bind (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4074416: ??? (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C82: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 21 (8 direct, 13 indirect) bytes in 1 blocks are definitely lost in loss record 21 of 75
+==11260==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4054BC4: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40545F3: string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x4054716: string_get_string_as_array (in /usr/lib/libcommons.so)
+==11260==    by 0x8049D0A: obtener_dato_lista (blocks.c:50)
+==11260==    by 0x804FBFA: deserializar_restaurante_FS (datos_sindicato.c:1907)
+==11260==    by 0x804DD22: obtener_restaurante_FS (datos_sindicato.c:1157)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== 24 bytes in 1 blocks are still reachable in loss record 22 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x427F923: _nc_home_terminfo (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x427F0A0: _nc_first_db (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4287909: _nc_read_entry (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4281C4A: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4281FB7: _nc_setupterm (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x428239E: tgetent (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x407FD4B: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 24 bytes in 1 blocks are still reachable in loss record 23 of 75
+==11260==    at 0x402E0B8: calloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x427F1DB: _nc_first_db (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4287909: _nc_read_entry (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4281C4A: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4281FB7: _nc_setupterm (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x428239E: tgetent (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x407FD4B: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 30 bytes in 4 blocks are definitely lost in loss record 24 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x41353A5: strdup (strdup.c:42)
+==11260==    by 0x405409A: string_duplicate (in /usr/lib/libcommons.so)
+==11260==    by 0x4054BA9: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40546AF: string_n_split (in /usr/lib/libcommons.so)
+==11260==    by 0x8049AFB: add_cofiguration.7573 (blocks.c:19)
+==11260==    by 0x4054846: string_iterate_lines (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BF3: crear_bloque (blocks.c:25)
+==11260==    by 0x804FA6D: deserializar_restaurante_FS (datos_sindicato.c:1883)
+==11260==    by 0x804DD22: obtener_restaurante_FS (datos_sindicato.c:1157)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260== 
+==11260== 41 bytes in 3 blocks are still reachable in loss record 25 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x41353A5: strdup (strdup.c:42)
+==11260==    by 0x4055B2D: dictionary_put (in /usr/lib/libcommons.so)
+==11260==    by 0x40562D3: add_cofiguration.2909 (in /usr/lib/libcommons.so)
+==11260==    by 0x4054846: string_iterate_lines (in /usr/lib/libcommons.so)
+==11260==    by 0x4056444: config_create (in /usr/lib/libcommons.so)
+==11260==    by 0x80498EB: leer_config (Sindicato.c:63)
+==11260==    by 0x8049737: iniciar_sindicato (Sindicato.c:22)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 46 bytes in 1 blocks are still reachable in loss record 26 of 75
+==11260==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x427F572: _nc_doalloc (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x42873C5: _nc_read_termtype (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x42877A7: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4287993: _nc_read_entry (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4281C4A: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4281FB7: _nc_setupterm (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x428239E: tgetent (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x407FD4B: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260== 
+==11260== 48 bytes in 1 blocks are still reachable in loss record 27 of 75
+==11260==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x40540E7: string_append (in /usr/lib/libcommons.so)
+==11260==    by 0x4054A5E: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==11260==    by 0x405425F: string_append_with_format (in /usr/lib/libcommons.so)
+==11260==    by 0x804AD1E: inicializar_paths_aux (datos_sindicato.c:24)
+==11260==    by 0x8049755: iniciar_sindicato (Sindicato.c:27)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 48 bytes in 3 blocks are still reachable in loss record 28 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4056004: dictionary_create_element (in /usr/lib/libcommons.so)
+==11260==    by 0x4055B3F: dictionary_put (in /usr/lib/libcommons.so)
+==11260==    by 0x40562D3: add_cofiguration.2909 (in /usr/lib/libcommons.so)
+==11260==    by 0x4054846: string_iterate_lines (in /usr/lib/libcommons.so)
+==11260==    by 0x4056444: config_create (in /usr/lib/libcommons.so)
+==11260==    by 0x80498EB: leer_config (Sindicato.c:63)
+==11260==    by 0x8049737: iniciar_sindicato (Sindicato.c:22)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 49 bytes in 1 blocks are still reachable in loss record 29 of 75
+==11260==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x40540E7: string_append (in /usr/lib/libcommons.so)
+==11260==    by 0x4054A5E: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==11260==    by 0x405425F: string_append_with_format (in /usr/lib/libcommons.so)
+==11260==    by 0x804B0DB: inicializar_bloques (datos_sindicato.c:94)
+==11260==    by 0x8049764: iniciar_sindicato (Sindicato.c:31)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 49 bytes in 1 blocks are still reachable in loss record 30 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x41353A5: strdup (strdup.c:42)
+==11260==    by 0x405409A: string_duplicate (in /usr/lib/libcommons.so)
+==11260==    by 0x804C2EC: crearBloques (datos_sindicato.c:463)
+==11260==    by 0x804B12C: inicializar_bloques (datos_sindicato.c:101)
+==11260==    by 0x8049764: iniciar_sindicato (Sindicato.c:31)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 49 bytes in 1 blocks are definitely lost in loss record 31 of 75
+==11260==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x40540E7: string_append (in /usr/lib/libcommons.so)
+==11260==    by 0x4054A5E: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==11260==    by 0x405425F: string_append_with_format (in /usr/lib/libcommons.so)
+==11260==    by 0x804ACB8: inicializar_paths_aux (datos_sindicato.c:21)
+==11260==    by 0x8049755: iniciar_sindicato (Sindicato.c:27)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 51 bytes in 1 blocks are still reachable in loss record 32 of 75
+==11260==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x40540E7: string_append (in /usr/lib/libcommons.so)
+==11260==    by 0x4054A5E: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==11260==    by 0x405425F: string_append_with_format (in /usr/lib/libcommons.so)
+==11260==    by 0x804B03E: inicializar_bitmap (datos_sindicato.c:80)
+==11260==    by 0x804975F: iniciar_sindicato (Sindicato.c:30)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 51 bytes in 1 blocks are definitely lost in loss record 33 of 75
+==11260==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x40540E7: string_append (in /usr/lib/libcommons.so)
+==11260==    by 0x4054A5E: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==11260==    by 0x405425F: string_append_with_format (in /usr/lib/libcommons.so)
+==11260==    by 0x804AD40: inicializar_paths_aux (datos_sindicato.c:25)
+==11260==    by 0x8049755: iniciar_sindicato (Sindicato.c:27)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 56 bytes in 1 blocks are still reachable in loss record 34 of 75
+==11260==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x40540E7: string_append (in /usr/lib/libcommons.so)
+==11260==    by 0x4054A5E: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==11260==    by 0x405425F: string_append_with_format (in /usr/lib/libcommons.so)
+==11260==    by 0x804ACFC: inicializar_paths_aux (datos_sindicato.c:23)
+==11260==    by 0x8049755: iniciar_sindicato (Sindicato.c:27)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 61 bytes in 1 blocks are still reachable in loss record 35 of 75
+==11260==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x40540E7: string_append (in /usr/lib/libcommons.so)
+==11260==    by 0x4054A5E: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==11260==    by 0x405425F: string_append_with_format (in /usr/lib/libcommons.so)
+==11260==    by 0x804ACDA: inicializar_paths_aux (datos_sindicato.c:22)
+==11260==    by 0x8049755: iniciar_sindicato (Sindicato.c:27)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 62 bytes in 1 blocks are still reachable in loss record 36 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x41353A5: strdup (strdup.c:42)
+==11260==    by 0x405409A: string_duplicate (in /usr/lib/libcommons.so)
+==11260==    by 0x804C131: crear_bitmap (datos_sindicato.c:432)
+==11260==    by 0x804B092: inicializar_bitmap (datos_sindicato.c:88)
+==11260==    by 0x804975F: iniciar_sindicato (Sindicato.c:30)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 62 bytes in 1 blocks are definitely lost in loss record 37 of 75
+==11260==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x40540E7: string_append (in /usr/lib/libcommons.so)
+==11260==    by 0x4054A5E: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==11260==    by 0x405425F: string_append_with_format (in /usr/lib/libcommons.so)
+==11260==    by 0x804AD62: inicializar_paths_aux (datos_sindicato.c:26)
+==11260==    by 0x8049755: iniciar_sindicato (Sindicato.c:27)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 64 bytes in 1 blocks are still reachable in loss record 38 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x41353A5: strdup (strdup.c:42)
+==11260==    by 0x40563A7: config_create (in /usr/lib/libcommons.so)
+==11260==    by 0x80498EB: leer_config (Sindicato.c:63)
+==11260==    by 0x8049737: iniciar_sindicato (Sindicato.c:22)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 65 bytes in 1 blocks are still reachable in loss record 39 of 75
+==11260==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x40540E7: string_append (in /usr/lib/libcommons.so)
+==11260==    by 0x4054A5E: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==11260==    by 0x405425F: string_append_with_format (in /usr/lib/libcommons.so)
+==11260==    by 0x804AD84: inicializar_paths_aux (datos_sindicato.c:27)
+==11260==    by 0x8049755: iniciar_sindicato (Sindicato.c:27)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 75 bytes in 1 blocks are definitely lost in loss record 40 of 75
+==11260==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x40540E7: string_append (in /usr/lib/libcommons.so)
+==11260==    by 0x4054A5E: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==11260==    by 0x405425F: string_append_with_format (in /usr/lib/libcommons.so)
+==11260==    by 0x804B23F: crear_path_restaurante (datos_sindicato.c:122)
+==11260==    by 0x804DBD2: path_info_restaurante (datos_sindicato.c:1124)
+==11260==    by 0x804DCB2: obtener_restaurante_FS (datos_sindicato.c:1148)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== 78 bytes in 1 blocks are still reachable in loss record 41 of 75
+==11260==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x427F572: _nc_doalloc (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x42873E4: _nc_read_termtype (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x42877A7: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4287993: _nc_read_entry (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4281C4A: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4281FB7: _nc_setupterm (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x428239E: tgetent (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x407FD4B: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260== 
+==11260== 80 bytes in 1 blocks are still reachable in loss record 42 of 75
+==11260==    at 0x402E0B8: calloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4055A18: dictionary_create (in /usr/lib/libcommons.so)
+==11260==    by 0x40563B6: config_create (in /usr/lib/libcommons.so)
+==11260==    by 0x80498EB: leer_config (Sindicato.c:63)
+==11260==    by 0x8049737: iniciar_sindicato (Sindicato.c:22)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 93 bytes in 1 blocks are still reachable in loss record 43 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x427F12A: _nc_first_db (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4287909: _nc_read_entry (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4281C4A: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4281FB7: _nc_setupterm (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x428239E: tgetent (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x407FD4B: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 94 bytes in 1 blocks are still reachable in loss record 44 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x427F593: _nc_doalloc (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x428313E: _nc_tparm_analyze (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4283302: tparm (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4287D5A: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x428804B: _nc_trim_sgr0 (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x42824D3: tgetent (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x407FD4B: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 103 bytes in 3 blocks are still reachable in loss record 45 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x41353A5: strdup (strdup.c:42)
+==11260==    by 0x405409A: string_duplicate (in /usr/lib/libcommons.so)
+==11260==    by 0x4054BA9: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40546AF: string_n_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40562B0: add_cofiguration.2909 (in /usr/lib/libcommons.so)
+==11260==    by 0x4054846: string_iterate_lines (in /usr/lib/libcommons.so)
+==11260==    by 0x4056444: config_create (in /usr/lib/libcommons.so)
+==11260==    by 0x80498EB: leer_config (Sindicato.c:63)
+==11260==    by 0x8049737: iniciar_sindicato (Sindicato.c:22)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 136 bytes in 1 blocks are possibly lost in loss record 46 of 75
+==11260==    at 0x402E0B8: calloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4011726: allocate_dtv (dl-tls.c:322)
+==11260==    by 0x401214B: _dl_allocate_tls (dl-tls.c:539)
+==11260==    by 0x40A9CC3: allocate_stack (allocatestack.c:588)
+==11260==    by 0x40A9CC3: pthread_create@@GLIBC_2.1 (pthread_create.c:539)
+==11260==    by 0x80496F0: main (Sindicato.c:8)
+==11260== 
+==11260== 136 bytes in 1 blocks are definitely lost in loss record 47 of 75
+==11260==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x804A89B: crear_data_archivo_FS (blocks.c:256)
+==11260==    by 0x804DE9C: leer_archivo (datos_sindicato.c:1186)
+==11260==    by 0x804DD00: obtener_restaurante_FS (datos_sindicato.c:1155)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== 136 bytes in 1 blocks are definitely lost in loss record 48 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x804BA83: bajar_datos_bloques (datos_sindicato.c:307)
+==11260==    by 0x804DD11: obtener_restaurante_FS (datos_sindicato.c:1156)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== 172 bytes in 1 blocks are still reachable in loss record 49 of 75
+==11260==    at 0x402E0B8: calloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4281FA0: _nc_setupterm (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x428239E: tgetent (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x407FD4B: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 256 bytes in 1 blocks are still reachable in loss record 50 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x804C0FF: crear_bitmap (datos_sindicato.c:430)
+==11260==    by 0x804B092: inicializar_bitmap (datos_sindicato.c:88)
+==11260==    by 0x804975F: iniciar_sindicato (Sindicato.c:30)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 256 bytes in 1 blocks are still reachable in loss record 51 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E18: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 256 bytes in 1 blocks are still reachable in loss record 52 of 75
+==11260==    at 0x402E0B8: calloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4287523: _nc_read_termtype (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x42877A7: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4287993: _nc_read_entry (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4281C4A: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4281FB7: _nc_setupterm (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x428239E: tgetent (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x407FD4B: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 344 bytes in 1 blocks are still reachable in loss record 53 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x411E369: __fopen_internal (iofopen.c:69)
+==11260==    by 0x411E42D: fopen@@GLIBC_2.1 (iofopen.c:97)
+==11260==    by 0x4053ADA: txt_open_for_append (in /usr/lib/libcommons.so)
+==11260==    by 0x4053BE3: log_create (in /usr/lib/libcommons.so)
+==11260==    by 0x80498C2: iniciar_logger (Sindicato.c:59)
+==11260==    by 0x8049741: iniciar_sindicato (Sindicato.c:24)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 751 bytes in 1 blocks are still reachable in loss record 54 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x42875EB: _nc_read_termtype (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x42877A7: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4287993: _nc_read_entry (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4281C4A: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4281FB7: _nc_setupterm (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x428239E: tgetent (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x407FD4B: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 768 bytes in 1 blocks are still reachable in loss record 55 of 75
+==11260==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089953: xrealloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x406B71C: rl_add_funmap_entry (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x406B788: rl_initialize_funmap (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C73: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 1,024 bytes in 1 blocks are still reachable in loss record 56 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4076690: ??? (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407AC2F: rl_redisplay (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4066B5E: readline_internal_setup (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E88: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 1,024 bytes in 1 blocks are still reachable in loss record 57 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x40766A4: ??? (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407AC2F: rl_redisplay (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4066B5E: readline_internal_setup (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E88: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 1,024 bytes in 1 blocks are still reachable in loss record 58 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x40766DA: ??? (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407AC2F: rl_redisplay (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4066B5E: readline_internal_setup (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E88: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 1,024 bytes in 1 blocks are still reachable in loss record 59 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x40766F4: ??? (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407AC2F: rl_redisplay (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4066B5E: readline_internal_setup (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E88: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 1,024 bytes in 1 blocks are still reachable in loss record 60 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407670B: ??? (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407AC2F: rl_redisplay (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4066B5E: readline_internal_setup (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E88: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 1,024 bytes in 1 blocks are still reachable in loss record 61 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4076722: ??? (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407AC2F: rl_redisplay (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4066B5E: readline_internal_setup (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E88: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 1,064 bytes in 133 blocks are still reachable in loss record 62 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x406B6B9: rl_add_funmap_entry (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x406B788: rl_initialize_funmap (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C73: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 1,439 bytes in 1 blocks are still reachable in loss record 63 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4286E3B: _nc_read_termtype (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x42877A7: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4287993: _nc_read_entry (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4281C4A: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4281FB7: _nc_setupterm (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x428239E: tgetent (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x407FD4B: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 1,904 bytes in 1 blocks are still reachable in loss record 64 of 75
+==11260==    at 0x402E2CC: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x427F572: _nc_doalloc (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4287404: _nc_read_termtype (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x42877A7: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4287993: _nc_read_entry (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4281C4A: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4281FB7: _nc_setupterm (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x428239E: tgetent (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x407FD4B: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260== 
+==11260== 2,032 bytes in 1 blocks are still reachable in loss record 65 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407FFF8: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 2,056 bytes in 1 blocks are still reachable in loss record 66 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x406B868: rl_make_bare_keymap (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4072949: rl_generic_bind (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4072B01: rl_set_key (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407362D: rl_bind_keyseq_if_unbound_in_map (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4073723: rl_bind_keyseq_if_unbound (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407F5BB: ??? (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407FE8E: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260== 
+==11260== 4,080 bytes in 1 blocks are still reachable in loss record 67 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407FFD4: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 4,112 bytes in 2 blocks are still reachable in loss record 68 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x406B868: rl_make_bare_keymap (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4072949: rl_generic_bind (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4072B01: rl_set_key (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407362D: rl_bind_keyseq_if_unbound_in_map (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4073723: rl_bind_keyseq_if_unbound (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407F62D: ??? (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407FE8E: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260== 
+==11260== 4,112 bytes in 2 blocks are still reachable in loss record 69 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x406B868: rl_make_bare_keymap (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4072949: rl_generic_bind (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4072B01: rl_set_key (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407362D: rl_bind_keyseq_if_unbound_in_map (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4073723: rl_bind_keyseq_if_unbound (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407F5BB: ??? (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407FE99: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260== 
+==11260== 4,112 bytes in 2 blocks are still reachable in loss record 70 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x406B868: rl_make_bare_keymap (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4072949: rl_generic_bind (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4072B01: rl_set_key (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407362D: rl_bind_keyseq_if_unbound_in_map (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4073723: rl_bind_keyseq_if_unbound (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407F62D: ??? (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407FE99: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260== 
+==11260== 4,112 bytes in 2 blocks are still reachable in loss record 71 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x406B868: rl_make_bare_keymap (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4072949: rl_generic_bind (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4072B01: rl_set_key (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407362D: rl_bind_keyseq_if_unbound_in_map (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4073723: rl_bind_keyseq_if_unbound (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407F5BB: ??? (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407FEA4: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260== 
+==11260== 4,112 bytes in 2 blocks are still reachable in loss record 72 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x406B868: rl_make_bare_keymap (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4072949: rl_generic_bind (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4072B01: rl_set_key (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407362D: rl_bind_keyseq_if_unbound_in_map (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4073723: rl_bind_keyseq_if_unbound (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407F62D: ??? (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407FEA4: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260== 
+==11260== 5,964 bytes in 1 blocks are still reachable in loss record 73 of 75
+==11260==    at 0x402E0B8: calloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x427E6B2: ??? (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x427ECBB: _nc_find_type_entry (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x4282AAA: tgetstr (in /lib/i386-linux-gnu/libtinfo.so.5.9)
+==11260==    by 0x407FD91: _rl_init_terminal_io (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C5B: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 16,448 bytes in 8 blocks are still reachable in loss record 74 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x4089917: xmalloc (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x406B868: rl_make_bare_keymap (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4072949: rl_generic_bind (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4072AD5: rl_bind_keyseq (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x407422E: rl_parse_and_bind (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4074416: ??? (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067C82: rl_initialize (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x4067E5F: readline (in /lib/i386-linux-gnu/libreadline.so.6.3)
+==11260==    by 0x804A9C7: leer_consola (consola_sindicato.c:6)
+==11260==    by 0x804970C: main (Sindicato.c:11)
+==11260== 
+==11260== 49,152 bytes in 1 blocks are still reachable in loss record 75 of 75
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x80505AD: inicializar_semaforos (utils_Sindicato.c:86)
+==11260==    by 0x8049769: iniciar_sindicato (Sindicato.c:32)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== LEAK SUMMARY:
+==11260==    definitely lost: 571 bytes in 16 blocks
+==11260==    indirectly lost: 17 bytes in 2 blocks
+==11260==      possibly lost: 136 bytes in 1 blocks
+==11260==    still reachable: 114,936 bytes in 210 blocks
+==11260==         suppressed: 0 bytes in 0 blocks
+==11260== 
+==11260== Use --track-origins=yes to see where uninitialised values come from
+==11260== ERROR SUMMARY: 27 errors from 25 contexts (suppressed: 0 from 0)
+==11260== 
+==11260== 1 errors in context 1 of 25:
+==11260== Thread 3:
+==11260== Invalid read of size 1
+==11260==    at 0x4031230: __GI_memcpy (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x41353B7: strdup (strdup.c:47)
+==11260==    by 0x405409A: string_duplicate (in /usr/lib/libcommons.so)
+==11260==    by 0x4054ACF: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40545F3: string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BDB: crear_bloque (blocks.c:15)
+==11260==    by 0x804FA6D: deserializar_restaurante_FS (datos_sindicato.c:1883)
+==11260==    by 0x804DD22: obtener_restaurante_FS (datos_sindicato.c:1157)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260==  Address 0x43f3148 is 0 bytes after a block of size 136 alloc'd
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x804BA83: bajar_datos_bloques (datos_sindicato.c:307)
+==11260==    by 0x804DD11: obtener_restaurante_FS (datos_sindicato.c:1156)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== 
+==11260== 1 errors in context 2 of 25:
+==11260== Invalid read of size 1
+==11260==    at 0x402F3A3: __GI_strlen (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x413539A: strdup (strdup.c:41)
+==11260==    by 0x405409A: string_duplicate (in /usr/lib/libcommons.so)
+==11260==    by 0x4054ACF: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40545F3: string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BDB: crear_bloque (blocks.c:15)
+==11260==    by 0x804FA6D: deserializar_restaurante_FS (datos_sindicato.c:1883)
+==11260==    by 0x804DD22: obtener_restaurante_FS (datos_sindicato.c:1157)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260==  Address 0x43f3148 is 0 bytes after a block of size 136 alloc'd
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x804BA83: bajar_datos_bloques (datos_sindicato.c:307)
+==11260==    by 0x804DD11: obtener_restaurante_FS (datos_sindicato.c:1156)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== 
+==11260== 1 errors in context 3 of 25:
+==11260== Invalid read of size 1
+==11260==    at 0x4031230: __GI_memcpy (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x41353B7: strdup (strdup.c:47)
+==11260==    by 0x405409A: string_duplicate (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BB6: crear_bloque (blocks.c:12)
+==11260==    by 0x804FA6D: deserializar_restaurante_FS (datos_sindicato.c:1883)
+==11260==    by 0x804DD22: obtener_restaurante_FS (datos_sindicato.c:1157)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260==  Address 0x43f3148 is 0 bytes after a block of size 136 alloc'd
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x804BA83: bajar_datos_bloques (datos_sindicato.c:307)
+==11260==    by 0x804DD11: obtener_restaurante_FS (datos_sindicato.c:1156)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== 
+==11260== 1 errors in context 4 of 25:
+==11260== Invalid read of size 1
+==11260==    at 0x402F3A3: __GI_strlen (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x413539A: strdup (strdup.c:41)
+==11260==    by 0x405409A: string_duplicate (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BB6: crear_bloque (blocks.c:12)
+==11260==    by 0x804FA6D: deserializar_restaurante_FS (datos_sindicato.c:1883)
+==11260==    by 0x804DD22: obtener_restaurante_FS (datos_sindicato.c:1157)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260==  Address 0x43f3148 is 0 bytes after a block of size 136 alloc'd
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x804BA83: bajar_datos_bloques (datos_sindicato.c:307)
+==11260==    by 0x804DD11: obtener_restaurante_FS (datos_sindicato.c:1156)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== 
+==11260== 1 errors in context 5 of 25:
+==11260== Invalid read of size 1
+==11260==    at 0x4104393: vfprintf (vfprintf.c:1632)
+==11260==    by 0x41263EE: vsnprintf (vsnprintf.c:114)
+==11260==    by 0x4054A4D: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==11260==    by 0x40541D3: string_from_vformat (in /usr/lib/libcommons.so)
+==11260==    by 0x4053F0C: _log_write_in_level (in /usr/lib/libcommons.so)
+==11260==    by 0x4053D8D: log_info (in /usr/lib/libcommons.so)
+==11260==    by 0x804FA5D: deserializar_restaurante_FS (datos_sindicato.c:1882)
+==11260==    by 0x804DD22: obtener_restaurante_FS (datos_sindicato.c:1157)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260==  Address 0x43f3148 is 0 bytes after a block of size 136 alloc'd
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x804BA83: bajar_datos_bloques (datos_sindicato.c:307)
+==11260==    by 0x804DD11: obtener_restaurante_FS (datos_sindicato.c:1156)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== 
+==11260== 1 errors in context 6 of 25:
+==11260== Invalid read of size 1
+==11260==    at 0x4104393: vfprintf (vfprintf.c:1632)
+==11260==    by 0x41263EE: vsnprintf (vsnprintf.c:114)
+==11260==    by 0x4054A1B: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==11260==    by 0x40541D3: string_from_vformat (in /usr/lib/libcommons.so)
+==11260==    by 0x4053F0C: _log_write_in_level (in /usr/lib/libcommons.so)
+==11260==    by 0x4053D8D: log_info (in /usr/lib/libcommons.so)
+==11260==    by 0x804FA5D: deserializar_restaurante_FS (datos_sindicato.c:1882)
+==11260==    by 0x804DD22: obtener_restaurante_FS (datos_sindicato.c:1157)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260==  Address 0x43f3148 is 0 bytes after a block of size 136 alloc'd
+==11260==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x804BA83: bajar_datos_bloques (datos_sindicato.c:307)
+==11260==    by 0x804DD11: obtener_restaurante_FS (datos_sindicato.c:1156)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== 
+==11260== 1 errors in context 7 of 25:
+==11260== Conditional jump or move depends on uninitialised value(s)
+==11260==    at 0x4054B6B: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40545F3: string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BDB: crear_bloque (blocks.c:15)
+==11260==    by 0x804DE52: leer_archivo (datos_sindicato.c:1183)
+==11260==    by 0x804DD00: obtener_restaurante_FS (datos_sindicato.c:1155)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== 
+==11260== 1 errors in context 8 of 25:
+==11260== Conditional jump or move depends on uninitialised value(s)
+==11260==    at 0x4054B5E: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40545F3: string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BDB: crear_bloque (blocks.c:15)
+==11260==    by 0x804DE52: leer_archivo (datos_sindicato.c:1183)
+==11260==    by 0x804DD00: obtener_restaurante_FS (datos_sindicato.c:1155)
+==11260==    by 0x8050B71: procesar_mensaje_recibido (utils_Sindicato.c:213)
+==11260==    by 0x805057C: serve_client (utils_Sindicato.c:69)
+==11260==    by 0x40A9294: start_thread (pthread_create.c:333)
+==11260==    by 0x41A71AD: clone (clone.S:114)
+==11260== 
+==11260== 
+==11260== 1 errors in context 9 of 25:
+==11260== Thread 1:
+==11260== Conditional jump or move depends on uninitialised value(s)
+==11260==    at 0x4054B6B: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40545F3: string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BDB: crear_bloque (blocks.c:15)
+==11260==    by 0x804AF4A: leer_metadata (datos_sindicato.c:65)
+==11260==    by 0x804AE85: obtener_metada (datos_sindicato.c:47)
+==11260==    by 0x804975A: iniciar_sindicato (Sindicato.c:29)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 
+==11260== 1 errors in context 10 of 25:
+==11260== Conditional jump or move depends on uninitialised value(s)
+==11260==    at 0x4054B5E: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40545F3: string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BDB: crear_bloque (blocks.c:15)
+==11260==    by 0x804AF4A: leer_metadata (datos_sindicato.c:65)
+==11260==    by 0x804AE85: obtener_metada (datos_sindicato.c:47)
+==11260==    by 0x804975A: iniciar_sindicato (Sindicato.c:29)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 
+==11260== 2 errors in context 11 of 25:
+==11260== Conditional jump or move depends on uninitialised value(s)
+==11260==    at 0x402F3A7: __GI_strlen (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x413539A: strdup (strdup.c:41)
+==11260==    by 0x405409A: string_duplicate (in /usr/lib/libcommons.so)
+==11260==    by 0x4054ACF: _string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x40545F3: string_split (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BDB: crear_bloque (blocks.c:15)
+==11260==    by 0x804AF4A: leer_metadata (datos_sindicato.c:65)
+==11260==    by 0x804AE85: obtener_metada (datos_sindicato.c:47)
+==11260==    by 0x804975A: iniciar_sindicato (Sindicato.c:29)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== 
+==11260== 2 errors in context 12 of 25:
+==11260== Conditional jump or move depends on uninitialised value(s)
+==11260==    at 0x402F3A7: __GI_strlen (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==11260==    by 0x413539A: strdup (strdup.c:41)
+==11260==    by 0x405409A: string_duplicate (in /usr/lib/libcommons.so)
+==11260==    by 0x8049BB6: crear_bloque (blocks.c:12)
+==11260==    by 0x804AF4A: leer_metadata (datos_sindicato.c:65)
+==11260==    by 0x804AE85: obtener_metada (datos_sindicato.c:47)
+==11260==    by 0x804975A: iniciar_sindicato (Sindicato.c:29)
+==11260==    by 0x80496D9: main (Sindicato.c:6)
+==11260== 
+==11260== ERROR SUMMARY: 27 errors from 25 contexts (suppressed: 0 from 0)

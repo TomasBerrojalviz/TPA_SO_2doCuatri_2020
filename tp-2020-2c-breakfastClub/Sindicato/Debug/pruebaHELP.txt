@@ -1,0 +1,136 @@
+==8097== Helgrind, a thread error detector
+==8097== Copyright (C) 2007-2017, and GNU GPL'd, by OpenWorks LLP et al.
+==8097== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==8097== Command: ./Sindicato
+==8097== Parent PID: 3074
+==8097== 
+--8097-- 
+--8097-- Valgrind options:
+--8097--    --tool=helgrind
+--8097--    -v
+--8097--    --log-file=pruebaHELP.txt
+--8097-- Contents of /proc/version:
+--8097--   Linux version 4.4.0-116-generic (buildd@lgw01-amd64-023) (gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.9) ) #140-Ubuntu SMP Mon Feb 12 21:22:43 UTC 2018
+--8097-- 
+--8097-- Arch and hwcaps: X86, LittleEndian, x86-mmxext-sse1-sse2-sse3
+--8097-- Page sizes: currently 4096, max supported 4096
+--8097-- Valgrind library directory: /usr/lib/valgrind
+--8097-- Reading syms from /home/utnso/tp-2020-2c-breakfastClub/Sindicato/Debug/Sindicato
+--8097-- Reading syms from /lib/i386-linux-gnu/ld-2.27.so
+--8097--   Considering /lib/i386-linux-gnu/ld-2.27.so ..
+--8097--   .. CRC mismatch (computed 965ff690 wanted 79ae83c3)
+--8097--   Considering /usr/lib/debug/lib/i386-linux-gnu/ld-2.27.so ..
+--8097--   .. CRC is valid
+--8097-- Reading syms from /usr/lib/valgrind/helgrind-x86-linux
+--8097--   Considering /usr/lib/valgrind/helgrind-x86-linux ..
+--8097--   .. CRC mismatch (computed 4fc32810 wanted 8e29560d)
+--8097--    object doesn't have a symbol table
+--8097--    object doesn't have a dynamic symbol table
+--8097-- Scheduler: using generic scheduler lock implementation.
+--8097-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==8097== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-8097-by-utnso-on-???
+==8097== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-8097-by-utnso-on-???
+==8097== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-8097-by-utnso-on-???
+==8097== 
+==8097== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==8097== don't want to do, unless you know exactly what you're doing,
+==8097== or are doing some strange experiment):
+==8097==   /usr/lib/valgrind/../../bin/vgdb --pid=8097 ...command...
+==8097== 
+==8097== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==8097==   /path/to/gdb ./Sindicato
+==8097== and then give GDB the following command
+==8097==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=8097
+==8097== --pid is optional if only one valgrind process is running
+==8097== 
+--8097-- Reading syms from /usr/lib/valgrind/vgpreload_core-x86-linux.so
+--8097--   Considering /usr/lib/valgrind/vgpreload_core-x86-linux.so ..
+--8097--   .. CRC mismatch (computed 86c0c51e wanted baca1012)
+--8097--    object doesn't have a symbol table
+--8097-- Reading syms from /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so
+--8097--   Considering /usr/lib/valgrind/vgpreload_helgrind-x86-linux.so ..
+--8097--   .. CRC mismatch (computed 415646ed wanted 17c98324)
+--8097--    object doesn't have a symbol table
+--8097-- REDIR: 0x401b4d0 (ld-linux.so.2:strlen) redirected to 0x4837ca0 (strlen)
+--8097-- Reading syms from /usr/lib/libcommons.so
+--8097-- Reading syms from /lib/i386-linux-gnu/libreadline.so.6.3
+--8097--   Considering /lib/i386-linux-gnu/libreadline.so.6.3 ..
+--8097--   .. CRC mismatch (computed ae23cd8f wanted 3f613fc8)
+--8097--    object doesn't have a symbol table
+--8097-- Reading syms from /usr/lib/libUtils_Shared.so
+--8097-- Reading syms from /lib/i386-linux-gnu/libpthread-2.27.so
+--8097--   Considering /usr/lib/debug/.build-id/e5/fb30b280e9d3c30e8bfed706dc19d2f1815ead.debug ..
+--8097--   .. build-id is valid
+==8097== WARNING: new redirection conflicts with existing -- ignoring it
+--8097--     old: 0x048bfd60 (pthread_spin_init   ) W-> (0000.0) 0x04837300 pthread_spin_init
+--8097--     new: 0x048bfd60 (pthread_spin_init   ) W-> (0000.0) 0x04837310 pthread_spin_unlock
+==8097== WARNING: new redirection conflicts with existing -- ignoring it
+--8097--     old: 0x048bfd60 (pthread_spin_init   ) W-> (0000.0) 0x04837300 pthread_spin_init
+--8097--     new: 0x048bfd60 (pthread_spin_init   ) W-> (0000.0) 0x04837310 pthread_spin_unlock
+==8097== WARNING: new redirection conflicts with existing -- ignoring it
+--8097--     old: 0x048c19d0 (sem_wait@@GLIBC_2.1 ) W-> (0000.0) 0x04837400 sem_wait@*
+--8097--     new: 0x048c19d0 (sem_wait@@GLIBC_2.1 ) W-> (0000.0) 0x048373f0 sem_wait
+==8097== WARNING: new redirection conflicts with existing -- ignoring it
+--8097--     old: 0x048c1ac0 (sem_wait@GLIBC_2.0  ) W-> (0000.0) 0x04837400 sem_wait@*
+--8097--     new: 0x048c1ac0 (sem_wait@GLIBC_2.0  ) W-> (0000.0) 0x048373f0 sem_wait
+==8097== WARNING: new redirection conflicts with existing -- ignoring it
+--8097--     old: 0x048c1e60 (sem_post@@GLIBC_2.1 ) W-> (0000.0) 0x04837420 sem_post@*
+--8097--     new: 0x048c1e60 (sem_post@@GLIBC_2.1 ) W-> (0000.0) 0x04837410 sem_post
+==8097== WARNING: new redirection conflicts with existing -- ignoring it
+--8097--     old: 0x048c1f10 (sem_post@GLIBC_2.0  ) W-> (0000.0) 0x04837420 sem_post@*
+--8097--     new: 0x048c1f10 (sem_post@GLIBC_2.0  ) W-> (0000.0) 0x04837410 sem_post
+--8097-- Reading syms from /lib/i386-linux-gnu/libc-2.27.so
+--8097--   Considering /lib/i386-linux-gnu/libc-2.27.so ..
+--8097--   .. CRC mismatch (computed 06b0a9e5 wanted 165f08e4)
+--8097--   Considering /usr/lib/debug/lib/i386-linux-gnu/libc-2.27.so ..
+--8097--   .. CRC is valid
+--8097-- Reading syms from /lib/i386-linux-gnu/libtinfo.so.5.9
+--8097--    object doesn't have a symbol table
+--8097-- REDIR: 0x4950a70 (libc.so.6:strncasecmp) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--8097-- REDIR: 0x4957040 (libc.so.6:memrchr) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--8097-- REDIR: 0x496abf0 (libc.so.6:wcslen) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--8097-- REDIR: 0x494f3d0 (libc.so.6:strcmp) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--8097-- REDIR: 0x4950ba0 (libc.so.6:memcpy) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--8097-- REDIR: 0x494f440 (libc.so.6:strcpy) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--8097-- REDIR: 0x49d8420 (libc.so.6:__memcpy_chk) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--8097-- REDIR: 0x494f390 (libc.so.6:index) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--8097-- REDIR: 0x494f8e0 (libc.so.6:strlen) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--8097-- REDIR: 0x4950830 (libc.so.6:memset) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--8097-- REDIR: 0x494f9d0 (libc.so.6:strncpy) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--8097-- REDIR: 0x494fa10 (libc.so.6:rindex) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--8097-- REDIR: 0x494f990 (libc.so.6:strncmp) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--8097-- REDIR: 0x494f950 (libc.so.6:strncat) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--8097-- REDIR: 0x4950210 (libc.so.6:strstr) redirected to 0x483b670 (strstr)
+--8097-- REDIR: 0x4969dd0 (libc.so.6:__GI_strrchr) redirected to 0x4837880 (__GI_strrchr)
+--8097-- REDIR: 0x494bd00 (libc.so.6:malloc) redirected to 0x4831390 (malloc)
+--8097-- REDIR: 0x496a270 (libc.so.6:__GI_strlen) redirected to 0x4837c20 (__GI_strlen)
+--8097-- REDIR: 0x49698e0 (libc.so.6:__GI_memcpy) redirected to 0x4839490 (__GI_memcpy)
+--8097-- REDIR: 0x494c950 (libc.so.6:calloc) redirected to 0x48332e0 (calloc)
+--8097-- REDIR: 0x496a050 (libc.so.6:__GI_strcspn) redirected to 0x483b940 (__GI_strcspn)
+--8097-- REDIR: 0x494c430 (libc.so.6:realloc) redirected to 0x4833520 (realloc)
+--8097-- REDIR: 0x494c320 (libc.so.6:free) redirected to 0x4832550 (free)
+--8097-- REDIR: 0x4957370 (libc.so.6:__strlen_sse2_bsf) redirected to 0x4837c00 (strlen)
+--8097-- REDIR: 0x4a21480 (libc.so.6:__strncmp_ssse3) redirected to 0x4837f80 (strncmp)
+--8097-- REDIR: 0x49525e0 (libc.so.6:strchrnul) redirected to 0x483b260 (strchrnul)
+--8097-- REDIR: 0x49699d0 (libc.so.6:__GI_mempcpy) redirected to 0x483b420 (__GI_mempcpy)
+--8097-- REDIR: 0x494f350 (libc.so.6:strcat) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--8097-- REDIR: 0x4962a60 (libc.so.6:__strcat_ssse3) redirected to 0x4837ab0 (strcat)
+--8097-- REDIR: 0x49695f0 (libc.so.6:__GI_memcmp) redirected to 0x483a2d0 (__GI_memcmp)
+--8097-- REDIR: 0x496a020 (libc.so.6:__GI_strcmp) redirected to 0x48389d0 (__GI_strcmp)
+--8097-- REDIR: 0x48ba300 (libpthread.so.0:pthread_mutex_init) redirected to 0x4836e00 (pthread_mutex_init)
+==8097== 
+==8097== Process terminating with default action of signal 11 (SIGSEGV)
+==8097==  Access not within mapped region at address 0x46
+==8097==    at 0x49368B7: fclose@@GLIBC_2.1 (iofclose.c:43)
+==8097==    by 0x10C399: crearBloques (datos_sindicato.c:490)
+==8097==    by 0x10AF0D: inicializar_bloques (datos_sindicato.c:110)
+==8097==    by 0x109726: iniciar_sindicato (Sindicato.c:34)
+==8097==    by 0x10969B: main (Sindicato.c:6)
+==8097==  If you believe this happened as a result of a stack
+==8097==  overflow in your program's main thread (unlikely but
+==8097==  possible), you can try to increase the size of the
+==8097==  main thread stack using the --main-stacksize= flag.
+==8097==  The main thread stack size used in this run was 8388608.
+==8097== 
+==8097== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==8097== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

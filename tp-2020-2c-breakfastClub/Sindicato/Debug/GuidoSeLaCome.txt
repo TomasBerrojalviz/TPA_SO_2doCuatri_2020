@@ -1,0 +1,346 @@
+==2962== Memcheck, a memory error detector
+==2962== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2962== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==2962== Command: ./Sindicato
+==2962== Parent PID: 2488
+==2962== 
+--2962-- 
+--2962-- Valgrind options:
+--2962--    --show-leak-kinds=all
+--2962--    --leak-check=full
+--2962--    -v
+--2962--    --log-file=GuidoSeLaCome.txt
+--2962-- Contents of /proc/version:
+--2962--   Linux version 4.4.0-116-generic (buildd@lgw01-amd64-023) (gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.9) ) #140-Ubuntu SMP Mon Feb 12 21:22:43 UTC 2018
+--2962-- 
+--2962-- Arch and hwcaps: X86, LittleEndian, x86-mmxext-sse1-sse2-sse3
+--2962-- Page sizes: currently 4096, max supported 4096
+--2962-- Valgrind library directory: /usr/lib/valgrind
+--2962-- Reading syms from /home/utnso/tp-2020-2c-breakfastClub/Sindicato/Debug/Sindicato
+--2962-- Reading syms from /lib/i386-linux-gnu/ld-2.27.so
+--2962--   Considering /lib/i386-linux-gnu/ld-2.27.so ..
+--2962--   .. CRC mismatch (computed 965ff690 wanted 79ae83c3)
+--2962--   Considering /usr/lib/debug/lib/i386-linux-gnu/ld-2.27.so ..
+--2962--   .. CRC is valid
+--2962-- Reading syms from /usr/lib/valgrind/memcheck-x86-linux
+--2962--   Considering /usr/lib/valgrind/memcheck-x86-linux ..
+--2962--   .. CRC mismatch (computed 657043de wanted a93b74ca)
+--2962--    object doesn't have a symbol table
+--2962--    object doesn't have a dynamic symbol table
+--2962-- Scheduler: using generic scheduler lock implementation.
+--2962-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==2962== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-2962-by-utnso-on-???
+==2962== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-2962-by-utnso-on-???
+==2962== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-2962-by-utnso-on-???
+==2962== 
+==2962== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==2962== don't want to do, unless you know exactly what you're doing,
+==2962== or are doing some strange experiment):
+==2962==   /usr/lib/valgrind/../../bin/vgdb --pid=2962 ...command...
+==2962== 
+==2962== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==2962==   /path/to/gdb ./Sindicato
+==2962== and then give GDB the following command
+==2962==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=2962
+==2962== --pid is optional if only one valgrind process is running
+==2962== 
+--2962-- REDIR: 0x401b4d0 (ld-linux.so.2:strlen) redirected to 0x58055ad3 (???)
+--2962-- REDIR: 0x401b230 (ld-linux.so.2:index) redirected to 0x58055aae (???)
+--2962-- Reading syms from /usr/lib/valgrind/vgpreload_core-x86-linux.so
+--2962--   Considering /usr/lib/valgrind/vgpreload_core-x86-linux.so ..
+--2962--   .. CRC mismatch (computed 86c0c51e wanted baca1012)
+--2962--    object doesn't have a symbol table
+--2962-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so
+--2962--   Considering /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so ..
+--2962--   .. CRC mismatch (computed bacf5249 wanted 9148b4d4)
+--2962--    object doesn't have a symbol table
+==2962== WARNING: new redirection conflicts with existing -- ignoring it
+--2962--     old: 0x0401b4d0 (strlen              ) R-> (0000.0) 0x58055ad3 ???
+--2962--     new: 0x0401b4d0 (strlen              ) R-> (2007.0) 0x04833430 strlen
+--2962-- Reading syms from /usr/lib/libcommons.so
+--2962-- Reading syms from /lib/i386-linux-gnu/libreadline.so.6.3
+--2962--   Considering /lib/i386-linux-gnu/libreadline.so.6.3 ..
+--2962--   .. CRC mismatch (computed ae23cd8f wanted 3f613fc8)
+--2962--    object doesn't have a symbol table
+--2962-- Reading syms from /usr/lib/libUtils_Shared.so
+--2962-- Reading syms from /lib/i386-linux-gnu/libpthread-2.27.so
+--2962--   Considering /usr/lib/debug/.build-id/e5/fb30b280e9d3c30e8bfed706dc19d2f1815ead.debug ..
+--2962--   .. build-id is valid
+--2962-- Reading syms from /lib/i386-linux-gnu/libc-2.27.so
+--2962--   Considering /lib/i386-linux-gnu/libc-2.27.so ..
+--2962--   .. CRC mismatch (computed 06b0a9e5 wanted 165f08e4)
+--2962--   Considering /usr/lib/debug/lib/i386-linux-gnu/libc-2.27.so ..
+--2962--   .. CRC is valid
+--2962-- Reading syms from /lib/i386-linux-gnu/libtinfo.so.5.9
+--2962--    object doesn't have a symbol table
+--2962-- REDIR: 0x494ba70 (libc.so.6:strncasecmp) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--2962-- REDIR: 0x4952040 (libc.so.6:memrchr) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--2962-- REDIR: 0x4965bf0 (libc.so.6:wcslen) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--2962-- REDIR: 0x494a3d0 (libc.so.6:strcmp) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--2962-- REDIR: 0x494bba0 (libc.so.6:memcpy) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--2962-- REDIR: 0x494a440 (libc.so.6:strcpy) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--2962-- REDIR: 0x49d3420 (libc.so.6:__memcpy_chk) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--2962-- REDIR: 0x494a390 (libc.so.6:index) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--2962-- REDIR: 0x494a8e0 (libc.so.6:strlen) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--2962-- REDIR: 0x494b830 (libc.so.6:memset) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--2962-- REDIR: 0x494a9d0 (libc.so.6:strncpy) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--2962-- REDIR: 0x494aa10 (libc.so.6:rindex) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--2962-- REDIR: 0x494a990 (libc.so.6:strncmp) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--2962-- REDIR: 0x494a950 (libc.so.6:strncat) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--2962-- REDIR: 0x494b210 (libc.so.6:strstr) redirected to 0x4837fa0 (strstr)
+--2962-- REDIR: 0x4964dd0 (libc.so.6:__GI_strrchr) redirected to 0x4832de0 (__GI_strrchr)
+--2962-- REDIR: 0x494d5e0 (libc.so.6:strchrnul) redirected to 0x4837900 (strchrnul)
+--2962-- REDIR: 0x4946d00 (libc.so.6:malloc) redirected to 0x48301b0 (malloc)
+--2962-- REDIR: 0x4965270 (libc.so.6:__GI_strlen) redirected to 0x48333b0 (__GI_strlen)
+--2962-- REDIR: 0x49648e0 (libc.so.6:__GI_memcpy) redirected to 0x4835180 (__GI_memcpy)
+--2962-- REDIR: 0x4947950 (libc.so.6:calloc) redirected to 0x4832100 (calloc)
+--2962-- REDIR: 0x4965050 (libc.so.6:__GI_strcspn) redirected to 0x4838270 (__GI_strcspn)
+--2962-- REDIR: 0x4947430 (libc.so.6:realloc) redirected to 0x4832340 (realloc)
+--2962-- REDIR: 0x4947320 (libc.so.6:free) redirected to 0x4831370 (free)
+--2962-- REDIR: 0x4952370 (libc.so.6:__strlen_sse2_bsf) redirected to 0x4833390 (strlen)
+--2962-- REDIR: 0x4a1c480 (libc.so.6:__strncmp_ssse3) redirected to 0x4833af0 (strncmp)
+--2962-- REDIR: 0x49649d0 (libc.so.6:__GI_mempcpy) redirected to 0x4837b30 (__GI_mempcpy)
+--2962-- REDIR: 0x494a350 (libc.so.6:strcat) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--2962-- REDIR: 0x495da60 (libc.so.6:__strcat_ssse3) redirected to 0x4833010 (strcat)
+--2962-- REDIR: 0x49645f0 (libc.so.6:__GI_memcmp) redirected to 0x4836380 (__GI_memcmp)
+--2962-- REDIR: 0x4965020 (libc.so.6:__GI_strcmp) redirected to 0x4834540 (__GI_strcmp)
+==2962== Conditional jump or move depends on uninitialised value(s)
+==2962==    at 0x48333C7: __GI_strlen (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==2962==    by 0x494A60A: strdup (strdup.c:41)
+==2962==    by 0x485E037: string_duplicate (in /usr/lib/libcommons.so)
+==2962==    by 0x109BE7: crear_bloque (blocks.c:12)
+==2962==    by 0x10AE4E: leer_metadata (datos_sindicato.c:74)
+==2962==    by 0x10ADA1: obtener_metada (datos_sindicato.c:57)
+==2962==    by 0x1097CC: iniciar_sindicato (Sindicato.c:29)
+==2962==    by 0x10974B: main (Sindicato.c:6)
+==2962== 
+==2962== Conditional jump or move depends on uninitialised value(s)
+==2962==    at 0x48333C7: __GI_strlen (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==2962==    by 0x494A60A: strdup (strdup.c:41)
+==2962==    by 0x485E037: string_duplicate (in /usr/lib/libcommons.so)
+==2962==    by 0x485EA78: _string_split (in /usr/lib/libcommons.so)
+==2962==    by 0x485E596: string_split (in /usr/lib/libcommons.so)
+==2962==    by 0x109C0C: crear_bloque (blocks.c:15)
+==2962==    by 0x10AE4E: leer_metadata (datos_sindicato.c:74)
+==2962==    by 0x10ADA1: obtener_metada (datos_sindicato.c:57)
+==2962==    by 0x1097CC: iniciar_sindicato (Sindicato.c:29)
+==2962==    by 0x10974B: main (Sindicato.c:6)
+==2962== 
+==2962== Conditional jump or move depends on uninitialised value(s)
+==2962==    at 0x48382D8: __GI_strcspn (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==2962==    by 0x494B6E5: strtok_r (strtok_r.c:64)
+==2962==    by 0x485EA9E: _string_split (in /usr/lib/libcommons.so)
+==2962==    by 0x485E596: string_split (in /usr/lib/libcommons.so)
+==2962==    by 0x109C0C: crear_bloque (blocks.c:15)
+==2962==    by 0x10AE4E: leer_metadata (datos_sindicato.c:74)
+==2962==    by 0x10ADA1: obtener_metada (datos_sindicato.c:57)
+==2962==    by 0x1097CC: iniciar_sindicato (Sindicato.c:29)
+==2962==    by 0x10974B: main (Sindicato.c:6)
+==2962== 
+==2962== Conditional jump or move depends on uninitialised value(s)
+==2962==    at 0x494B6EE: strtok_r (strtok_r.c:65)
+==2962==    by 0x485EA9E: _string_split (in /usr/lib/libcommons.so)
+==2962==    by 0x485E596: string_split (in /usr/lib/libcommons.so)
+==2962==    by 0x109C0C: crear_bloque (blocks.c:15)
+==2962==    by 0x10AE4E: leer_metadata (datos_sindicato.c:74)
+==2962==    by 0x10ADA1: obtener_metada (datos_sindicato.c:57)
+==2962==    by 0x1097CC: iniciar_sindicato (Sindicato.c:29)
+==2962==    by 0x10974B: main (Sindicato.c:6)
+==2962== 
+==2962== Conditional jump or move depends on uninitialised value(s)
+==2962==    at 0x48333C7: __GI_strlen (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==2962==    by 0x494A60A: strdup (strdup.c:41)
+==2962==    by 0x485E037: string_duplicate (in /usr/lib/libcommons.so)
+==2962==    by 0x485EAED: _string_split (in /usr/lib/libcommons.so)
+==2962==    by 0x485E596: string_split (in /usr/lib/libcommons.so)
+==2962==    by 0x109C0C: crear_bloque (blocks.c:15)
+==2962==    by 0x10AE4E: leer_metadata (datos_sindicato.c:74)
+==2962==    by 0x10ADA1: obtener_metada (datos_sindicato.c:57)
+==2962==    by 0x1097CC: iniciar_sindicato (Sindicato.c:29)
+==2962==    by 0x10974B: main (Sindicato.c:6)
+==2962== 
+==2962== Conditional jump or move depends on uninitialised value(s)
+==2962==    at 0x485EB07: _string_split (in /usr/lib/libcommons.so)
+==2962==    by 0x485E596: string_split (in /usr/lib/libcommons.so)
+==2962==    by 0x109C0C: crear_bloque (blocks.c:15)
+==2962==    by 0x10AE4E: leer_metadata (datos_sindicato.c:74)
+==2962==    by 0x10ADA1: obtener_metada (datos_sindicato.c:57)
+==2962==    by 0x1097CC: iniciar_sindicato (Sindicato.c:29)
+==2962==    by 0x10974B: main (Sindicato.c:6)
+==2962== 
+==2962== Conditional jump or move depends on uninitialised value(s)
+==2962==    at 0x485EB14: _string_split (in /usr/lib/libcommons.so)
+==2962==    by 0x485E596: string_split (in /usr/lib/libcommons.so)
+==2962==    by 0x109C0C: crear_bloque (blocks.c:15)
+==2962==    by 0x10AE4E: leer_metadata (datos_sindicato.c:74)
+==2962==    by 0x10ADA1: obtener_metada (datos_sindicato.c:57)
+==2962==    by 0x1097CC: iniciar_sindicato (Sindicato.c:29)
+==2962==    by 0x10974B: main (Sindicato.c:6)
+==2962== 
+==2962== Conditional jump or move depends on uninitialised value(s)
+==2962==    at 0x48333C7: __GI_strlen (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==2962==    by 0x494A60A: strdup (strdup.c:41)
+==2962==    by 0x485E037: string_duplicate (in /usr/lib/libcommons.so)
+==2962==    by 0x485EB53: _string_split (in /usr/lib/libcommons.so)
+==2962==    by 0x485E658: string_n_split (in /usr/lib/libcommons.so)
+==2962==    by 0x109B26: add_cofiguration.7490 (blocks.c:19)
+==2962==    by 0x485E7EF: string_iterate_lines (in /usr/lib/libcommons.so)
+==2962==    by 0x109C24: crear_bloque (blocks.c:25)
+==2962==    by 0x10AE4E: leer_metadata (datos_sindicato.c:74)
+==2962==    by 0x10ADA1: obtener_metada (datos_sindicato.c:57)
+==2962==    by 0x1097CC: iniciar_sindicato (Sindicato.c:29)
+==2962==    by 0x10974B: main (Sindicato.c:6)
+==2962== 
+==2962== Conditional jump or move depends on uninitialised value(s)
+==2962==    at 0x48333C7: __GI_strlen (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==2962==    by 0x494A60A: strdup (strdup.c:41)
+==2962==    by 0x485E037: string_duplicate (in /usr/lib/libcommons.so)
+==2962==    by 0x10AE80: leer_metadata (datos_sindicato.c:77)
+==2962==    by 0x10ADA1: obtener_metada (datos_sindicato.c:57)
+==2962==    by 0x1097CC: iniciar_sindicato (Sindicato.c:29)
+==2962==    by 0x10974B: main (Sindicato.c:6)
+==2962== 
+==2962== Conditional jump or move depends on uninitialised value(s)
+==2962==    at 0x48333C7: __GI_strlen (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==2962==    by 0x4916F47: vfprintf (vfprintf.c:1643)
+==2962==    by 0x493ACF0: vsnprintf (vsnprintf.c:114)
+==2962==    by 0x485E9C4: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==2962==    by 0x485E1FC: string_append_with_format (in /usr/lib/libcommons.so)
+==2962==    by 0x10C34B: crearBloques (datos_sindicato.c:476)
+==2962==    by 0x10B037: inicializar_bloques (datos_sindicato.c:110)
+==2962==    by 0x1097D6: iniciar_sindicato (Sindicato.c:31)
+==2962==    by 0x10974B: main (Sindicato.c:6)
+==2962== 
+==2962== Conditional jump or move depends on uninitialised value(s)
+==2962==    at 0x48333C7: __GI_strlen (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==2962==    by 0x4916F47: vfprintf (vfprintf.c:1643)
+==2962==    by 0x493ACF0: vsnprintf (vsnprintf.c:114)
+==2962==    by 0x485E9F6: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==2962==    by 0x485E1FC: string_append_with_format (in /usr/lib/libcommons.so)
+==2962==    by 0x10C34B: crearBloques (datos_sindicato.c:476)
+==2962==    by 0x10B037: inicializar_bloques (datos_sindicato.c:110)
+==2962==    by 0x1097D6: iniciar_sindicato (Sindicato.c:31)
+==2962==    by 0x10974B: main (Sindicato.c:6)
+==2962== 
+--2962-- REDIR: 0x49524a0 (libc.so.6:__strcpy_ssse3) redirected to 0x4833470 (strcpy)
+--2962-- REDIR: 0x4963460 (libc.so.6:__strrchr_sse2_bsf) redirected to 0x4832db0 (rindex)
+--2962-- REDIR: 0x4963350 (libc.so.6:__strchr_sse2_bsf) redirected to 0x4832fd0 (index)
+--2962-- REDIR: 0x49522c0 (libc.so.6:__GI_strncmp) redirected to 0x4833b80 (__GI_strncmp)
+--2962-- REDIR: 0x4a0c390 (libc.so.6:__memset_sse2) redirected to 0x4836f20 (memset)
+--2962-- REDIR: 0x49640a0 (libc.so.6:__GI_strnlen) redirected to 0x4833360 (__GI_strnlen)
+--2962-- REDIR: 0x4a1b010 (libc.so.6:__strcmp_ssse3) redirected to 0x48344e0 (strcmp)
+--2962-- REDIR: 0x4a0ea30 (libc.so.6:__memcpy_ssse3) redirected to 0x4834e10 (memcpy)
+--2962-- REDIR: 0x4a0ea20 (libc.so.6:__memcpy_chk_ssse3) redirected to 0x4837eb0 (__memcpy_chk)
+--2962-- REDIR: 0x4953cf0 (libc.so.6:__strncpy_ssse3) redirected to 0x4833670 (strncpy)
+--2962-- REDIR: 0x48fbfc0 (libc.so.6:setenv) redirected to 0x4838750 (setenv)
+--2962-- REDIR: 0x4964c10 (libc.so.6:__GI_strchr) redirected to 0x4832f10 (__GI_strchr)
+--2962-- REDIR: 0x4964450 (libc.so.6:__GI_memchr) redirected to 0x4834760 (__GI_memchr)
+--2962-- REDIR: 0x4965330 (libc.so.6:__GI_stpcpy) redirected to 0x48368a0 (__GI_stpcpy)
+--2962-- REDIR: 0x494ba30 (libc.so.6:strcasecmp) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--2962-- REDIR: 0x4a1de70 (libc.so.6:__strcasecmp_ssse3) redirected to 0x4833d30 (strcasecmp)
+--2962-- REDIR: 0x4a20380 (libc.so.6:__strncasecmp_ssse3) redirected to 0x4833e50 (strncasecmp)
+--2962-- REDIR: 0x494b7a0 (libc.so.6:bcmp) redirected to 0x482a560 (_vgnU_ifunc_wrapper)
+--2962-- REDIR: 0x4a25250 (libc.so.6:__memcmp_ssse3) redirected to 0x48365f0 (bcmp)
+==2962== Invalid read of size 4
+==2962==    at 0x48B5B06: pthread_mutex_lock (pthread_mutex_lock.c:65)
+==2962==    by 0x10B858: subir_a_FS (datos_sindicato.c:274)
+==2962==    by 0x10B3F2: subir_receta_bloque (datos_sindicato.c:194)
+==2962==    by 0x10B31A: crear_archivo_receta (datos_sindicato.c:178)
+==2962==    by 0x10AA63: leer_consola (consola_sindicato.c:33)
+==2962==    by 0x10977E: main (Sindicato.c:11)
+==2962==  Address 0x4af59ec is 12 bytes before a block of size 3,072 alloc'd
+==2962==    at 0x483021B: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==2962==    by 0x1101D5: inicializar_semaforos (utils_Sindicato.c:86)
+==2962==    by 0x1097DB: iniciar_sindicato (Sindicato.c:32)
+==2962==    by 0x10974B: main (Sindicato.c:6)
+==2962== 
+==2962== Invalid read of size 4
+==2962==    at 0x48B5B1D: pthread_mutex_lock (pthread_mutex_lock.c:73)
+==2962==    by 0x10B858: subir_a_FS (datos_sindicato.c:274)
+==2962==    by 0x10B3F2: subir_receta_bloque (datos_sindicato.c:194)
+==2962==    by 0x10B31A: crear_archivo_receta (datos_sindicato.c:178)
+==2962==    by 0x10AA63: leer_consola (consola_sindicato.c:33)
+==2962==    by 0x10977E: main (Sindicato.c:11)
+==2962==  Address 0x4af59ec is 12 bytes before a block of size 3,072 alloc'd
+==2962==    at 0x483021B: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==2962==    by 0x1101D5: inicializar_semaforos (utils_Sindicato.c:86)
+==2962==    by 0x1097DB: iniciar_sindicato (Sindicato.c:32)
+==2962==    by 0x10974B: main (Sindicato.c:6)
+==2962== 
+==2962== Invalid read of size 4
+==2962==    at 0x48B5B6D: pthread_mutex_lock (pthread_mutex_lock.c:78)
+==2962==    by 0x10B858: subir_a_FS (datos_sindicato.c:274)
+==2962==    by 0x10B3F2: subir_receta_bloque (datos_sindicato.c:194)
+==2962==    by 0x10B31A: crear_archivo_receta (datos_sindicato.c:178)
+==2962==    by 0x10AA63: leer_consola (consola_sindicato.c:33)
+==2962==    by 0x10977E: main (Sindicato.c:11)
+==2962==  Address 0x4af59e0 is 24 bytes before a block of size 3,072 in arena "client"
+==2962== 
+==2962== Invalid read of size 4
+==2962==    at 0x48BD5E4: __lll_lock_wait (lowlevellock.S:147)
+==2962==    by 0x48B5B7B: pthread_mutex_lock (pthread_mutex_lock.c:78)
+==2962==    by 0x10B858: subir_a_FS (datos_sindicato.c:274)
+==2962==    by 0x10B3F2: subir_receta_bloque (datos_sindicato.c:194)
+==2962==    by 0x10B31A: crear_archivo_receta (datos_sindicato.c:178)
+==2962==    by 0x10AA63: leer_consola (consola_sindicato.c:33)
+==2962==    by 0x10977E: main (Sindicato.c:11)
+==2962==  Address 0x4af59e0 is 24 bytes before a block of size 3,072 in arena "client"
+==2962== 
+
+valgrind: m_mallocfree.c:307 (get_bszB_as_is): Assertion 'bszB_lo == bszB_hi' failed.
+valgrind: Heap block lo/hi size mismatch: lo = 2, hi = 131072.
+This is probably caused by your program erroneously writing past the
+end of a heap block and corrupting heap metadata.  If you fix any
+invalid writes reported by Memcheck, this assertion failure will
+probably go away.  Please try that before reporting this as a bug.
+
+
+host stacktrace:
+==2962==    at 0x58039807: ??? (in /usr/lib/valgrind/memcheck-x86-linux)
+==2962==    by 0x5803993D: ??? (in /usr/lib/valgrind/memcheck-x86-linux)
+==2962==    by 0x58039A34: ??? (in /usr/lib/valgrind/memcheck-x86-linux)
+==2962==    by 0x5804820C: ??? (in /usr/lib/valgrind/memcheck-x86-linux)
+==2962==    by 0x580324FA: ??? (in /usr/lib/valgrind/memcheck-x86-linux)
+==2962==    by 0x5803090C: ??? (in /usr/lib/valgrind/memcheck-x86-linux)
+==2962==    by 0x58030C5D: ??? (in /usr/lib/valgrind/memcheck-x86-linux)
+==2962==    by 0x5803520F: ??? (in /usr/lib/valgrind/memcheck-x86-linux)
+==2962==    by 0x580301D8: ??? (in /usr/lib/valgrind/memcheck-x86-linux)
+==2962==    by 0x58011844: ??? (in /usr/lib/valgrind/memcheck-x86-linux)
+==2962==    by 0x580AB462: ??? (in /usr/lib/valgrind/memcheck-x86-linux)
+==2962==    by 0x580974E0: ??? (in /usr/lib/valgrind/memcheck-x86-linux)
+==2962==    by 0x58093AFC: ??? (in /usr/lib/valgrind/memcheck-x86-linux)
+==2962==    by 0x580954B7: ??? (in /usr/lib/valgrind/memcheck-x86-linux)
+==2962==    by 0x580A6182: ??? (in /usr/lib/valgrind/memcheck-x86-linux)
+
+sched status:
+  running_tid=1
+
+Thread 1: status = VgTs_Runnable (lwpid 2962)
+==2962==    at 0x48BD5E2: __lll_lock_wait (lowlevellock.S:146)
+==2962==    by 0x48B5B7B: pthread_mutex_lock (pthread_mutex_lock.c:78)
+==2962==    by 0x10B858: subir_a_FS (datos_sindicato.c:274)
+==2962==    by 0x10B3F2: subir_receta_bloque (datos_sindicato.c:194)
+==2962==    by 0x10B31A: crear_archivo_receta (datos_sindicato.c:178)
+==2962==    by 0x10AA63: leer_consola (consola_sindicato.c:33)
+==2962==    by 0x10977E: main (Sindicato.c:11)
+
+Thread 2: status = VgTs_WaitSys (lwpid 2969)
+==2962==    at 0x48BDCFD: accept (accept.c:30)
+==2962==    by 0x1100B4: esperar_cliente (utils_Sindicato.c:44)
+==2962==    by 0x110078: iniciar_servidor (utils_Sindicato.c:34)
+==2962==    by 0x48B33BC: start_thread (pthread_create.c:463)
+==2962==    by 0x49C4FE5: clone (clone.S:108)
+
+
+Note: see also the FAQ in the source distribution.
+It contains workarounds to several common problems.
+In particular, if Valgrind aborted or crashed after
+identifying problems in your program, there's a good chance
+that fixing those problems will prevent Valgrind aborting or
+crashing, especially if it happened in m_mallocfree.c.
+
+If that doesn't help, please report this bug to: www.valgrind.org
+
+In the bug report, send all the above text, the valgrind
+version, and what OS and version you are using.  Thanks.
+

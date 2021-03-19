@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+environment/project/cdt.managedbuild.config.gnu.exe.debug.1752321788/LIbrerias/delimiter=\:
+environment/project/cdt.managedbuild.config.gnu.exe.debug.1752321788/LIbrerias/operation=replace
+environment/project/cdt.managedbuild.config.gnu.exe.debug.1752321788/LIbrerias/value=${LD_LIBRARY_PATH}/home/utnso/tp-2020-2c-breakfastClub/Utils_Shared
+environment/project/cdt.managedbuild.config.gnu.exe.debug.1752321788/append=true
+environment/project/cdt.managedbuild.config.gnu.exe.debug.1752321788/appendContributed=true
